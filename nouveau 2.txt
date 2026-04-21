@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offre Weekend</title>
+  <title>Offre Du Weekend</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -242,11 +242,11 @@
 
     <h1 id="main-title">Accès<br>Complet</h1>
 
-    <p class="tagline">Disponible uniquement le samedi et le dimanche.<br>L'offre ne sera pas prolongée.</p>
+    <p class="tagline">Disponible uniquement le week-end.<br>L'offre ne sera pas prolongée.</p>
 
     <ul class="offer-list">
-      <li><span class="dot"></span>Mon accompagnement complet inclus — suivi personnalisé, étape par étape</li>
-      <li><span class="dot"></span>Formation exclusive offerte avec ton accès</li>
+      <li><span class="dot"></span>Mon accompagnement complet inclus — suivi personnalisé</li>
+      <li><span class="dot"></span>Formation offerte avec ton accès</li>
       <li><span class="dot"></span>Disponible uniquement dans le temps imparti</li>
     </ul>
 
@@ -268,7 +268,7 @@
     </div>
 
     <div id="status-zone">
-      <p class="status-inactive">⏸ Offre expirée pour cette semaine</p>
+      <p class="status-inactive">⏸ Offre bientôt disponible</p>
       <p class="next-weekend" id="next-info"></p>
     </div>
 
@@ -318,7 +318,7 @@
         secondsEl.textContent = '00';
         const nextSat = getNextSaturday();
         statusZone.innerHTML = `
-          <p class="status-inactive">⏸ Offre expirée pour cette semaine</p>
+          <p class="status-inactive">⏸ Offre bientôt disponible</p>
           <p class="next-weekend">Prochaine offre : <strong>${formatDate(nextSat)}</strong></p>
         `;
         return;
@@ -340,7 +340,7 @@
       if (sm !== prevM) { animateFlip(minutesEl); minutesEl.textContent = sm; prevM = sm; }
       if (ss !== prevS) { animateFlip(secondsEl); secondsEl.textContent = ss; prevS = ss; }
 
-      statusZone.innerHTML = `<p class="status-active">● Offre active — profites-en maintenant</p>`;
+      statusZone.innerHTML = `<p class="status-active">● Offre active — profites-en maintenant !</p>`;
     }
 
     update();

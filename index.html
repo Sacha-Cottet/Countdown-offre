@@ -245,8 +245,8 @@
     <p class="tagline">Disponible uniquement le week-end.<br>L'offre ne sera pas prolongée.</p>
 
     <ul class="offer-list">
-      <li><span class="dot"></span>Mon accompagnement complet — suivi personnalisé</li>
-      <li><span class="dot"></span>3 formation MRR offerte - 1 accès garantie/3</li>
+      <li><span class="dot"></span>Mon accompagnement — suivi personnalisé</li>
+      <li><span class="dot"></span>3 formation MRR offerte</li>
       <li><span class="dot"></span>Disponible uniquement dans le temps imparti</li>
     </ul>
 
@@ -313,10 +313,18 @@
       const isActive = (day === 6) || (day === 0);
 
       if (!isActive) {
-        hoursEl.textContent   = '00';
-        minutesEl.textContent = '00';
-        secondsEl.textContent = '00';
         const nextSat = getNextSaturday();
+        const remaining = Math.max(0, Math.floor((nextSat - now) / 1000));
+        const rh = Math.floor(remaining / 3600);
+        const rm = Math.floor((remaining % 3600) / 60);
+        const rs = remaining % 60;
+
+        const sh = pad(rh), sm = pad(rm), ss = pad(rs);
+
+        if (sh !== prevH) { animateFlip(hoursEl);   hoursEl.textContent   = sh; prevH = sh; }
+        if (sm !== prevM) { animateFlip(minutesEl); minutesEl.textContent = sm; prevM = sm; }
+        if (ss !== prevS) { animateFlip(secondsEl); secondsEl.textContent = ss; prevS = ss; }
+
         statusZone.innerHTML = `
           <p class="status-inactive">⏸ Offre bientôt disponible</p>
           <p class="next-weekend">Prochaine offre : <strong>${formatDate(nextSat)}</strong></p>

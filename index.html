@@ -1,358 +1,372 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offre Du Weekend</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offre Du Weekend</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --accent: #c84b0f;
-      --accent-soft: rgba(200, 75, 15, 0.12);
-      --dark: #0c0908;
-      --surface: #131009;
-      --border: rgba(200, 100, 40, 0.15);
-      --text: #f0ebe5;
-      --muted: #7a6e65;
-      --warm: #e8825a;
-    }
+:root {
+  --accent: #c84b0f;
+  --accent-soft: rgba(200, 75, 15, 0.12);
+  --dark: #0c0908;
+  --surface: #131009;
+  --border: rgba(200, 100, 40, 0.15);
+  --text: #f0ebe5;
+  --muted: #7a6e65;
+  --warm: #e8825a;
+}
 
-    body {
-      background: var(--dark);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    /* Subtle background texture */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(160, 50, 10, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(200, 75, 15, 0.06) 0%, transparent 60%);
-      pointer-events: none;
-    }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(160, 50, 10, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(200, 75, 15, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
 
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 520px;
-      padding: 48px 32px;
-      text-align: center;
-      animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
+.wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  padding: 48px 32px;
+  text-align: center;
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--warm);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 32px;
-    }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--warm);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.eyebrow::before, .eyebrow::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--warm);
+  opacity: 0.5;
+}
 
-    .eyebrow::before,
-    .eyebrow::after {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--warm);
-      opacity: 0.5;
-    }
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 9vw, 62px);
+  letter-spacing: 3px;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 10px;
+}
 
-    h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(36px, 9vw, 62px);
-      letter-spacing: 3px;
-      line-height: 1.05;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
+.tagline {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
 
-    .tagline {
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: 0.3px;
-      margin-bottom: 40px;
-      line-height: 1.7;
-    }
+/* Offer bullets */
+.offer-list {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+.offer-list li {
+  list-style: none;
+  font-size: 13.5px;
+  color: #d0c8be;
+  padding: 7px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.5;
+}
+.offer-list li + li {
+  border-top: 1px solid rgba(200, 100, 40, 0.08);
+}
+.offer-list .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
 
-    /* Offer bullets */
-    .offer-list {
-      background: var(--accent-soft);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 40px;
-      text-align: left;
-    }
+/* Timer */
+.timer {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  min-width: 84px;
+  position: relative;
+  overflow: hidden;
+}
+.box::after {
+  content: '';
+  position: absolute;
+  left: 12px; right: 12px;
+  top: 50%;
+  height: 1px;
+  background: var(--border);
+}
+.num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(44px, 9vw, 64px);
+  line-height: 1;
+  color: var(--warm);
+  display: block;
+}
+.num.flip { animation: flip 0.18s ease; }
+@keyframes flip {
+  0%   { transform: scaleY(1); opacity: 1; }
+  45%  { transform: scaleY(0); opacity: 0; }
+  55%  { transform: scaleY(0); opacity: 0; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+.label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sep {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: var(--border);
+  line-height: 1;
+  margin-top: 16px;
+}
 
-    .offer-list li {
-      list-style: none;
-      font-size: 13.5px;
-      color: #d0c8be;
-      padding: 7px 0;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      line-height: 1.5;
-    }
+/* Inactive state */
+.state-inactive .timer { opacity: 0.18; pointer-events: none; }
 
-    .offer-list li + li {
-      border-top: 1px solid rgba(200, 100, 40, 0.08);
-    }
+/* Status */
+.status-active {
+  font-size: 12px;
+  color: var(--warm);
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.status-inactive {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
 
-    .offer-list .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
+/* CTA Button */
+.cta-wrap {
+  margin-top: 32px;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 40px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(200, 75, 15, 0.35);
+}
+.cta-btn:hover {
+  background: #e55a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(200, 75, 15, 0.5);
+}
+.cta-btn:active {
+  transform: translateY(0);
+}
 
-    /* Timer */
-    .timer {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      align-items: flex-start;
-      margin-bottom: 28px;
-    }
+/* CTA disabled when inactive */
+.cta-btn.disabled {
+  background: #2a1f18;
+  color: var(--muted);
+  box-shadow: none;
+  pointer-events: none;
+  cursor: not-allowed;
+}
 
-    .unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
+/* Divider */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--border);
+  margin: 32px auto 0;
+}
 
-    .box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 20px;
-      min-width: 84px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .box::after {
-      content: '';
-      position: absolute;
-      left: 12px; right: 12px;
-      top: 50%;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(44px, 9vw, 64px);
-      line-height: 1;
-      color: var(--warm);
-      display: block;
-    }
-
-    .num.flip { animation: flip 0.18s ease; }
-
-    @keyframes flip {
-      0%   { transform: scaleY(1); opacity: 1; }
-      45%  { transform: scaleY(0); opacity: 0; }
-      55%  { transform: scaleY(0); opacity: 0; }
-      100% { transform: scaleY(1); opacity: 1; }
-    }
-
-    .label {
-      font-size: 9px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .sep {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 48px;
-      color: var(--border);
-      line-height: 1;
-      margin-top: 16px;
-    }
-
-    /* Status */
-    .status-active {
-      font-size: 12px;
-      color: var(--warm);
-      letter-spacing: 1px;
-      font-weight: 500;
-    }
-
-    .status-inactive {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.5px;
-    }
-
-    .next-weekend {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .next-weekend strong {
-      color: #9a8a7a;
-      font-weight: 500;
-    }
-
-    /* Divider */
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: var(--border);
-      margin: 28px auto 0;
-    }
-
-    @media (max-width: 480px) {
-      .box { min-width: 68px; padding: 12px 14px; }
-      .sep { font-size: 36px; }
-      .timer { gap: 6px; }
-    }
-  </style>
+@media (max-width: 480px) {
+  .box { min-width: 68px; padding: 12px 14px; }
+  .sep { font-size: 36px; }
+  .timer { gap: 6px; }
+}
+</style>
 </head>
 <body>
-  <div class="wrapper">
 
-    <div class="eyebrow">Offre weekend</div>
+<div class="wrapper" id="main-wrapper">
+  <div class="eyebrow">Offre weekend</div>
+  <h1>Accès<br>Complet</h1>
+  <p class="tagline">Disponible uniquement du vendredi au dimanche.<br>L'offre ne sera pas prolongée.</p>
 
-    <h1 id="main-title">Accès<br>Complet</h1>
+  <ul class="offer-list">
+    <li><span class="dot"></span>Mon accompagnement — suivi personnalisé</li>
+    <li><span class="dot"></span>3 formations MRR offertes</li>
+    <li><span class="dot"></span>Disponible uniquement dans le temps imparti</li>
+  </ul>
 
-    <p class="tagline">Disponible uniquement le week-end.<br>L'offre ne sera pas prolongée.</p>
-
-    <ul class="offer-list">
-      <li><span class="dot"></span>Mon accompagnement — suivi personnalisé</li>
-      <li><span class="dot"></span>3 formation MRR offerte</li>
-      <li><span class="dot"></span>Disponible uniquement dans le temps imparti</li>
-    </ul>
-
-    <div class="timer">
-      <div class="unit">
-        <div class="box"><span class="num" id="hours">00</span></div>
-        <span class="label">Heures</span>
-      </div>
-      <div class="sep">:</div>
-      <div class="unit">
-        <div class="box"><span class="num" id="minutes">00</span></div>
-        <span class="label">Minutes</span>
-      </div>
-      <div class="sep">:</div>
-      <div class="unit">
-        <div class="box"><span class="num" id="seconds">00</span></div>
-        <span class="label">Secondes</span>
-      </div>
+  <div class="timer">
+    <div class="unit">
+      <div class="box"><span class="num" id="hours" aria-live="polite">00</span></div>
+      <span class="label">Heures</span>
     </div>
-
-    <div id="status-zone">
-      <p class="status-inactive">⏸ Offre bientôt disponible</p>
-      <p class="next-weekend" id="next-info"></p>
+    <div class="sep">:</div>
+    <div class="unit">
+      <div class="box"><span class="num" id="minutes" aria-live="polite">00</span></div>
+      <span class="label">Minutes</span>
     </div>
-
-    <div class="divider"></div>
+    <div class="sep">:</div>
+    <div class="unit">
+      <div class="box"><span class="num" id="seconds" aria-live="polite">00</span></div>
+      <span class="label">Secondes</span>
+    </div>
   </div>
 
-  <script>
-    function pad(n) { return String(n).padStart(2, '0'); }
+  <div id="status-zone">
+    <p class="status-inactive">⏸ Offre bientôt disponible</p>
+  </div>
 
-    function animateFlip(el) {
-      el.classList.remove('flip');
-      void el.offsetWidth;
-      el.classList.add('flip');
-    }
+  <div class="cta-wrap">
+    <a id="cta-btn" href="https://shop.beacons.ai/sacha.mdigit/4e917174-71ba-4243-bf1c-4ae2709d1ce5" target="_blank" rel="noopener" class="cta-btn disabled">
+      Profiter de l'offre →
+    </a>
+  </div>
 
-    function getNextSaturday() {
-      const now = new Date();
-      const day = now.getDay();
-      let daysUntil = (6 - day + 7) % 7;
-      if (daysUntil === 0) daysUntil = 7;
-      const next = new Date(now);
-      next.setDate(now.getDate() + daysUntil);
-      next.setHours(0, 0, 0, 0);
-      return next;
-    }
+  <div class="divider"></div>
+</div>
 
-    function formatDate(d) {
-      return d.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
-    }
+<script>
+function pad(n) { return String(n).padStart(2, '0'); }
 
-    const hoursEl   = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-    const statusZone = document.getElementById('status-zone');
-    const nextInfo   = document.getElementById('next-info');
+function animateFlip(el) {
+  el.classList.remove('flip');
+  void el.offsetWidth;
+  el.classList.add('flip');
+}
 
-    let prevH = '', prevM = '', prevS = '';
+const hoursEl   = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
+const statusZone = document.getElementById('status-zone');
+const ctaBtn     = document.getElementById('cta-btn');
+const wrapper    = document.getElementById('main-wrapper');
 
-    function update() {
-      const now  = new Date();
-      const day  = now.getDay();
-      const isActive = (day === 6) || (day === 0);
+let prevH = '', prevM = '', prevS = '';
 
-      if (!isActive) {
-        const nextSat = getNextSaturday();
-        const remaining = Math.max(0, Math.floor((nextSat - now) / 1000));
-        const rh = Math.floor(remaining / 3600);
-        const rm = Math.floor((remaining % 3600) / 60);
-        const rs = remaining % 60;
+function isActive(now) {
+  // Active: vendredi 00:00:00 → dimanche 23:59:59 (heure locale)
+  // day: 0=dim, 1=lun, 2=mar, 3=mer, 4=jeu, 5=ven, 6=sam
+  const day = now.getDay();
+  return day === 5 || day === 6 || day === 0;
+}
 
-        const sh = pad(rh), sm = pad(rm), ss = pad(rs);
+function getEndOfSunday(now) {
+  // Fin = lundi 00:00:00
+  const end = new Date(now);
+  const day = end.getDay();
+  const daysUntilMonday = day === 0 ? 1 : (8 - day) % 7 || 7;
+  end.setDate(end.getDate() + daysUntilMonday);
+  end.setHours(0, 0, 0, 0);
+  return end;
+}
 
-        if (sh !== prevH) { animateFlip(hoursEl);   hoursEl.textContent   = sh; prevH = sh; }
-        if (sm !== prevM) { animateFlip(minutesEl); minutesEl.textContent = sm; prevM = sm; }
-        if (ss !== prevS) { animateFlip(secondsEl); secondsEl.textContent = ss; prevS = ss; }
+function update() {
+  const now = new Date();
 
-        statusZone.innerHTML = `
-          <p class="status-inactive">⏸ Offre bientôt disponible</p>
-          <p class="next-weekend">Prochaine offre : <strong>${formatDate(nextSat)}</strong></p>
-        `;
-        return;
+  if (!isActive(now)) {
+    // Afficher 00:00:00, timer grisé, bouton désactivé
+    ['00', '00', '00'].forEach((v, i) => {
+      const els = [hoursEl, minutesEl, secondsEl];
+      if (els[i].textContent !== v) {
+        animateFlip(els[i]);
+        els[i].textContent = v;
       }
+    });
+    prevH = prevM = prevS = '00';
+    statusZone.innerHTML = `<p class="status-inactive">⏸ Offre bientôt disponible</p>`;
+    wrapper.classList.add('state-inactive');
+    ctaBtn.classList.add('disabled');
+    return;
+  }
 
-      // Compute time remaining until end of Sunday
-      const end = new Date(now);
-      end.setDate(now.getDate() + (day === 0 ? 1 : 2));
-      end.setHours(0, 0, 0, 0);
+  // Offre active — décompte jusqu'à fin samedi soir
+  const end = getEndOfSunday(now);
+  const remaining = Math.max(0, Math.floor((end - now) / 1000));
 
-      const remaining = Math.max(0, Math.floor((end - now) / 1000));
-      const rh = Math.floor(remaining / 3600);
-      const rm = Math.floor((remaining % 3600) / 60);
-      const rs = remaining % 60;
+  const rh = Math.floor(remaining / 3600);
+  const rm = Math.floor((remaining % 3600) / 60);
+  const rs = remaining % 60;
 
-      const sh = pad(rh), sm = pad(rm), ss = pad(rs);
+  const sh = pad(rh), sm = pad(rm), ss = pad(rs);
 
-      if (sh !== prevH) { animateFlip(hoursEl);   hoursEl.textContent   = sh; prevH = sh; }
-      if (sm !== prevM) { animateFlip(minutesEl); minutesEl.textContent = sm; prevM = sm; }
-      if (ss !== prevS) { animateFlip(secondsEl); secondsEl.textContent = ss; prevS = ss; }
+  if (sh !== prevH) { animateFlip(hoursEl);   hoursEl.textContent   = sh; prevH = sh; }
+  if (sm !== prevM) { animateFlip(minutesEl); minutesEl.textContent = sm; prevM = sm; }
+  if (ss !== prevS) { animateFlip(secondsEl); secondsEl.textContent = ss; prevS = ss; }
 
-      statusZone.innerHTML = `<p class="status-active">● Offre active — profites-en maintenant !</p>`;
-    }
+  statusZone.innerHTML = `<p class="status-active">● Offre active — profites-en maintenant !</p>`;
+  wrapper.classList.remove('state-inactive');
+  ctaBtn.classList.remove('disabled');
+}
 
-    update();
-    setInterval(update, 1000);
-  </script>
+update();
+setInterval(update, 1000);
+</script>
 </body>
 </html>

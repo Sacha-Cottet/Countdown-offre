@@ -198,12 +198,16 @@ h1 {
   border-radius: 6px;
   border: 1px solid rgba(200, 100, 40, 0.12);
   transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+  pointer-events: none;
+  cursor: default;
 }
 .cta-btn.active {
   background: var(--accent);
   color: #fff;
   border-color: transparent;
   box-shadow: 0 4px 28px rgba(200, 75, 15, 0.38);
+  pointer-events: auto;
+  cursor: pointer;
 }
 .cta-btn.active:hover {
   background: #e05518;
@@ -338,7 +342,7 @@ function update() {
       if (els[i].textContent !== v) { animateFlip(els[i]); els[i].textContent = v; }
     });
     prevH = prevM = prevS = '00';
-    statusZone.innerHTML = `<p class="status-inactive">⏸ Offre bientôt disponible</p>`;
+    statusZone.innerHTML = `<p class="status-inactive">⏸ Offre indisponible</p>`;
     wrapper.className = 'wrapper state-inactive';
     ctaBtn.classList.remove('active');
     return;
@@ -355,7 +359,7 @@ function update() {
   if (sm !== prevM) { animateFlip(minutesEl); minutesEl.textContent = sm; prevM = sm; }
   if (ss !== prevS) { animateFlip(secondsEl); secondsEl.textContent = ss; prevS = ss; }
 
-  statusZone.innerHTML = `<p class="status-active">● Offre active — profites-en maintenant !</p>`;
+  statusZone.innerHTML = `<p class="status-active">● Offre en cours — profites-en maintenant !</p>`;
   wrapper.className = 'wrapper state-active';
   ctaBtn.classList.add('active');
 }

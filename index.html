@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Offre Weekend</title>         
+<title>Offre Du Weekend</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --accent: #c84b0f;
-  --accent-soft: rgba(200, 75, 15, 0.12);
+  --accent-soft: rgba(180, 65, 10, 0.18);
   --dark: #0c0908;
-  --surface: #131009;
   --border: rgba(200, 100, 40, 0.15);
   --text: #f0ebe5;
-  --muted: #7a6e65;
+  --muted: #6e635a;
   --warm: #e8825a;
 }
 
@@ -34,8 +33,8 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(160, 50, 10, 0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(200, 75, 15, 0.06) 0%, transparent 60%);
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(150, 45, 8, 0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 85% 85%, rgba(180, 60, 10, 0.07) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -43,32 +42,33 @@ body::before {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 520px;
-  padding: 48px 32px;
+  max-width: 540px;
+  padding: 52px 36px 48px;
   text-align: center;
-  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes rise {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--warm);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  opacity: 0.75;
 }
 .eyebrow::before, .eyebrow::after {
   content: '';
   display: block;
-  width: 24px;
+  width: 28px;
   height: 1px;
   background: var(--warm);
   opacity: 0.5;
@@ -76,91 +76,73 @@ body::before {
 
 h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 9vw, 62px);
-  letter-spacing: 3px;
-  line-height: 1.05;
+  font-size: clamp(58px, 13vw, 88px);
+  letter-spacing: 4px;
+  line-height: 0.92;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 
 .tagline {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--muted);
-  letter-spacing: 0.3px;
-  margin-bottom: 40px;
-  line-height: 1.7;
+  letter-spacing: 0.2px;
+  margin-bottom: 36px;
+  line-height: 1.8;
 }
 
-/* Offer bullets */
 .offer-list {
   background: var(--accent-soft);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 40px;
+  border-radius: 10px;
+  padding: 18px 24px;
+  margin-bottom: 44px;
   text-align: left;
 }
 .offer-list li {
   list-style: none;
   font-size: 13.5px;
-  color: #d0c8be;
-  padding: 7px 0;
+  color: #cec5bc;
+  padding: 8px 0;
   display: flex;
   align-items: flex-start;
   gap: 12px;
   line-height: 1.5;
 }
 .offer-list li + li {
-  border-top: 1px solid rgba(200, 100, 40, 0.08);
+  border-top: 1px solid rgba(200, 100, 40, 0.07);
 }
 .offer-list .dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  margin-top: 6px;
+  margin-top: 5px;
   flex-shrink: 0;
 }
 
-/* Timer */
+/* Timer naked — no box */
 .timer {
   display: flex;
-  gap: 12px;
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 .unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-}
-.box {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px 20px;
-  min-width: 84px;
-  position: relative;
-  overflow: hidden;
-}
-.box::after {
-  content: '';
-  position: absolute;
-  left: 12px; right: 12px;
-  top: 50%;
-  height: 1px;
-  background: var(--border);
+  gap: 10px;
+  min-width: 100px;
 }
 .num {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(44px, 9vw, 64px);
+  font-size: clamp(64px, 13vw, 90px);
   line-height: 1;
-  color: var(--warm);
   display: block;
+  transition: color 0.3s;
 }
-.num.flip { animation: flip 0.18s ease; }
+.num.flip { animation: flip 0.2s ease; }
 @keyframes flip {
   0%   { transform: scaleY(1); opacity: 1; }
   45%  { transform: scaleY(0); opacity: 0; }
@@ -168,84 +150,78 @@ h1 {
   100% { transform: scaleY(1); opacity: 1; }
 }
 .label {
-  font-size: 9px;
-  letter-spacing: 2.5px;
+  font-size: 8.5px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
 }
 .sep {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 48px;
-  color: var(--border);
+  font-size: clamp(52px, 10vw, 72px);
   line-height: 1;
-  margin-top: 16px;
+  color: var(--muted);
+  opacity: 0.3;
+  padding: 0 2px;
 }
 
-/* Inactive state */
-.state-inactive .timer { opacity: 0.18; pointer-events: none; }
+.state-active .num  { color: var(--warm); }
+.state-inactive .num { color: rgba(120, 80, 50, 0.25); }
+.state-inactive .sep { opacity: 0.1; }
 
-/* Status */
+#status-zone {
+  margin-bottom: 28px;
+  min-height: 20px;
+}
 .status-active {
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--warm);
   letter-spacing: 1px;
   font-weight: 500;
 }
 .status-inactive {
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--muted);
   letter-spacing: 0.5px;
 }
 
-/* CTA Button */
-.cta-wrap {
-  margin-top: 32px;
-}
 .cta-btn {
   display: inline-block;
-  background: var(--accent);
-  color: #fff;
+  background: #1e1410;
+  color: var(--muted);
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 16px 40px;
-  border-radius: 8px;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 4px 24px rgba(200, 75, 15, 0.35);
+  padding: 18px 48px;
+  border-radius: 6px;
+  border: 1px solid rgba(200, 100, 40, 0.12);
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
 }
-.cta-btn:hover {
-  background: #e55a1a;
+.cta-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 28px rgba(200, 75, 15, 0.38);
+}
+.cta-btn.active:hover {
+  background: #e05518;
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(200, 75, 15, 0.5);
+  box-shadow: 0 8px 36px rgba(200, 75, 15, 0.52);
 }
-.cta-btn:active {
-  transform: translateY(0);
-}
+.cta-btn.active:active { transform: translateY(0); }
 
-/* CTA disabled when inactive */
-.cta-btn.disabled {
-  background: #2a1f18;
-  color: var(--muted);
-  box-shadow: none;
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
-/* Divider */
 .divider {
-  width: 40px;
+  width: 36px;
   height: 1px;
   background: var(--border);
-  margin: 32px auto 0;
+  margin: 36px auto 0;
 }
 
 @media (max-width: 480px) {
-  .box { min-width: 68px; padding: 12px 14px; }
-  .sep { font-size: 36px; }
-  .timer { gap: 6px; }
+  .unit { min-width: 76px; }
+  .sep { font-size: 44px; }
 }
 </style>
 </head>
@@ -254,7 +230,7 @@ h1 {
 <div class="wrapper" id="main-wrapper">
   <div class="eyebrow">Ce weekend</div>
   <h1>Accès<br>Complet</h1>
-  <p class="tagline">Disponible uniquement du vendredi au dimanche.<br>L'offre ne sera pas prolongée.</p>
+  <p class="tagline" id="tagline">Chargement...</p>
 
   <ul class="offer-list">
     <li><span class="dot"></span>Suivi personnalisé de 1h</li>
@@ -263,30 +239,31 @@ h1 {
 
   <div class="timer">
     <div class="unit">
-      <div class="box"><span class="num" id="hours" aria-live="polite">00</span></div>
+      <span class="num" id="hours" aria-live="polite">00</span>
       <span class="label">Heures</span>
     </div>
     <div class="sep">:</div>
     <div class="unit">
-      <div class="box"><span class="num" id="minutes" aria-live="polite">00</span></div>
+      <span class="num" id="minutes" aria-live="polite">00</span>
       <span class="label">Minutes</span>
     </div>
     <div class="sep">:</div>
     <div class="unit">
-      <div class="box"><span class="num" id="seconds" aria-live="polite">00</span></div>
+      <span class="num" id="seconds" aria-live="polite">00</span>
       <span class="label">Secondes</span>
     </div>
   </div>
 
   <div id="status-zone">
-    <p class="status-inactive">⏸ Offre bientôt disponible</p>
+    <p class="status-inactive">⏸ Offre prochainement disponible</p>
   </div>
 
-  <div class="cta-wrap">
-    <a id="cta-btn" href="https://shop.beacons.ai/sacha.mdigit/4e917174-71ba-4243-bf1c-4ae2709d1ce5" target="_blank" rel="noopener" class="cta-btn disabled">
-      Profiter de l'offre →
-    </a>
-  </div>
+  <a id="cta-btn"
+     href="https://shop.beacons.ai/sacha.mdigit/4e917174-71ba-4243-bf1c-4ae2709d1ce5"
+     target="_blank" rel="noopener"
+     class="cta-btn">
+    Profiter de l'offre →
+  </a>
 
   <div class="divider"></div>
 </div>
@@ -300,68 +277,87 @@ function animateFlip(el) {
   el.classList.add('flip');
 }
 
-const hoursEl   = document.getElementById('hours');
-const minutesEl = document.getElementById('minutes');
-const secondsEl = document.getElementById('seconds');
+const hoursEl    = document.getElementById('hours');
+const minutesEl  = document.getElementById('minutes');
+const secondsEl  = document.getElementById('seconds');
 const statusZone = document.getElementById('status-zone');
 const ctaBtn     = document.getElementById('cta-btn');
 const wrapper    = document.getElementById('main-wrapper');
+const taglineEl  = document.getElementById('tagline');
 
 let prevH = '', prevM = '', prevS = '';
 
+// Actif: samedi 00:00 → dimanche 23:59:59
 function isActive(now) {
-  // Active: vendredi 00:00:00 → dimanche 23:59:59 (heure locale)
-  // day: 0=dim, 1=lun, 2=mar, 3=mer, 4=jeu, 5=ven, 6=sam
-  const day = now.getDay();
-  return day === 5 || day === 6 || day === 0;
+  const day = now.getDay(); // 0=dim, 6=sam
+  return day === 6 || day === 0;
 }
 
+// Retourne le samedi et dimanche du weekend en cours (ou à venir)
+function getWeekendDates(now) {
+  const day = now.getDay();
+  let satOffset;
+  if (day === 6)      satOffset = 0;   // aujourd'hui est samedi
+  else if (day === 0) satOffset = -1;  // aujourd'hui est dimanche, samedi = hier
+  else                satOffset = 6 - day; // prochain samedi
+
+  const saturday = new Date(now);
+  saturday.setDate(now.getDate() + satOffset);
+  saturday.setHours(0, 0, 0, 0);
+
+  const sunday = new Date(saturday);
+  sunday.setDate(saturday.getDate() + 1);
+
+  return { saturday, sunday };
+}
+
+function formatDate(d) {
+  return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+}
+
+// Fin de l'offre = lundi 00:00:00
 function getEndOfSunday(now) {
-  // Fin = lundi 00:00:00
   const end = new Date(now);
   const day = end.getDay();
-  const daysUntilMonday = day === 0 ? 1 : (8 - day) % 7 || 7;
-  end.setDate(end.getDate() + daysUntilMonday);
+  const toMonday = day === 0 ? 1 : (8 - day) % 7 || 7;
+  end.setDate(end.getDate() + toMonday);
   end.setHours(0, 0, 0, 0);
   return end;
 }
 
 function update() {
   const now = new Date();
+  const { saturday, sunday } = getWeekendDates(now);
+
+  taglineEl.innerHTML =
+    `Disponible uniquement entre le <strong style="color:#c8a080">${formatDate(saturday)}</strong> et le <strong style="color:#c8a080">${formatDate(sunday)}</strong>.<br>L'offre ne sera pas prolongée.`;
 
   if (!isActive(now)) {
-    // Afficher 00:00:00, timer grisé, bouton désactivé
-    ['00', '00', '00'].forEach((v, i) => {
+    ['00','00','00'].forEach((v, i) => {
       const els = [hoursEl, minutesEl, secondsEl];
-      if (els[i].textContent !== v) {
-        animateFlip(els[i]);
-        els[i].textContent = v;
-      }
+      if (els[i].textContent !== v) { animateFlip(els[i]); els[i].textContent = v; }
     });
     prevH = prevM = prevS = '00';
     statusZone.innerHTML = `<p class="status-inactive">⏸ Offre bientôt disponible</p>`;
-    wrapper.classList.add('state-inactive');
-    ctaBtn.classList.add('disabled');
+    wrapper.className = 'wrapper state-inactive';
+    ctaBtn.classList.remove('active');
     return;
   }
 
-  // Offre active — décompte jusqu'à fin samedi soir
   const end = getEndOfSunday(now);
   const remaining = Math.max(0, Math.floor((end - now) / 1000));
 
-  const rh = Math.floor(remaining / 3600);
-  const rm = Math.floor((remaining % 3600) / 60);
-  const rs = remaining % 60;
-
-  const sh = pad(rh), sm = pad(rm), ss = pad(rs);
+  const sh = pad(Math.floor(remaining / 3600));
+  const sm = pad(Math.floor((remaining % 3600) / 60));
+  const ss = pad(remaining % 60);
 
   if (sh !== prevH) { animateFlip(hoursEl);   hoursEl.textContent   = sh; prevH = sh; }
   if (sm !== prevM) { animateFlip(minutesEl); minutesEl.textContent = sm; prevM = sm; }
   if (ss !== prevS) { animateFlip(secondsEl); secondsEl.textContent = ss; prevS = ss; }
 
   statusZone.innerHTML = `<p class="status-active">● Offre active — profites-en maintenant !</p>`;
-  wrapper.classList.remove('state-inactive');
-  ctaBtn.classList.remove('disabled');
+  wrapper.className = 'wrapper state-active';
+  ctaBtn.classList.add('active');
 }
 
 update();
